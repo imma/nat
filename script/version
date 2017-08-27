@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function version {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local ver_nat="0.0.1"
+  jq -n --arg nat "$ver_nat" '{nat: $nat}'
+}
+
+version "$@"
